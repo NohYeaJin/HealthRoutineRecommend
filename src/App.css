@@ -1,0 +1,78 @@
+
+/*Navbar css style*/
+.Home{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: large;
+}
+
+span{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/*Login.js*/
+#title{
+    font-weight: bold;
+    font-size: 25px;
+    color: #16a085;
+}
+
+.intro{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.sub{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+#hilight{
+    color: #16a085;
+    text-align: center;
+    margin-top: 0;
+}
+
+form{
+    text-align: center;
+}
+input{
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: gray;
+    border-width: 1px;
+}
+#submitBtn{
+    height: 45px;
+    background-color: #16a085;
+    color: white;
+    margin-top: 20px;
+    border: none;
+}
+#registerBtn{
+    height: 45px;
+    width: 300px;
+    font-size: 20px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/*createAccount.js*/
+.newUserInfo{
+    margin-top: 50px;
+}
+#newUserRegister{
+    height: 45px;
+    width: 200px;
+    margin-top: 20px;
+    font-size: 15px;
+    background-color: #5e5e5e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
