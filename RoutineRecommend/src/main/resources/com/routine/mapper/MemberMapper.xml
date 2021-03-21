@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.routine.mapper.MemberMapper">
+	<resultMap id="memberMap" type="com.routine.domain.UserVO">
+		<id column="member_num" property="member_num"></id>
+		<result column="id" property="id"></result>
+		<result column="password" property="password"></result>
+		<result column="joinDateTime" property="joinDateTime"></result>
+		<collection property="authList" resultMap = "authMap"></collection>
+	</resultMap>
+
+	<resultMap id="authMap" type="com.routine.domain.AuthVO">
+		<result column="member_id" property="member_id"></result>
+		<result column="auth" property="auth"></result>
+	</resultMap>
+	
+	<select id="read" resultMap = "memberMap">
+		SELECT mem.id, auth FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id WHERE mem.id = #{id}
+	</select>
+	
+	<select id="readAll" resultMap="memberMap">
+		SELECT mem.id, auth FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id 
+	</select>
+</mapper>
