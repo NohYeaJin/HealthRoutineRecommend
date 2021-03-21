@@ -3,7 +3,7 @@
 PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.routine.mapper.MemberMapper">
+<mapper namespace="com.routine.mapper.UserMapper">
 	<resultMap id="memberMap" type="com.routine.domain.UserVO">
 		<id column="member_num" property="member_num"></id>
 		<result column="id" property="id"></result>
@@ -12,17 +12,20 @@ PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="joinDateTime" property="joinDateTime"></result>
 		<collection property="authList" resultMap = "authMap"></collection>
 	</resultMap>
-
+	
 	<resultMap id="authMap" type="com.routine.domain.AuthVO">
 		<result column="member_id" property="member_id"></result>
 		<result column="auth" property="auth"></result>
 	</resultMap>
 	
-	<select id="read" resultMap = "memberMap">
-		SELECT member_num,mem.id,password,userName,joinDateTime,auth,auth.member_id FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id WHERE mem.id = #{id}
-	</select>
 	
-	<select id="readAll" resultMap="memberMap">
-		SELECT member_num,mem.id,password,userName,joinDateTime,auth,auth.member_id FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id 
-	</select>
+	<insert id = "insert" parameterType="com.routine.domain.UserVO">
+		INSERT INTO memberinfo (id, password,userName, joinDateTime) 
+		VALUES ( #{id}, #{password}, #{userName}, #{joinDateTime})	
+	</insert>
+	
+	<insert id="insertAuth" parameterType="com.routine.domain.AuthVO">
+		INSERT INTO memberauth (member_id, auth)
+		VALUES ( #{member_id}, "ROLE_MEMBER")
+	</insert>
 </mapper>

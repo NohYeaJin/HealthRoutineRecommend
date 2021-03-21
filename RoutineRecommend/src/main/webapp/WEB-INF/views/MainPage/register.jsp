@@ -25,12 +25,12 @@
         <h1 id="hilight">Beginner Gain</h1>
 
         <div class="newUserInfo">
-            <form name="user" action="" method="get">
+            <form id="my-form" action="/newUser" method="post">
                 <input type="text" name="userName" placeholder="이름"></input>
                 <p></p>
                 <input type="text" name="id" placeholder="아이디"></input>
                 <p></p>
-                <input type="text" name="pw" placeholder="비밀번호"></input>
+                <input type="password" name="password" placeholder="비밀번호"></input>
                 <p><input type="submit" value="가입 후 기본정보 입력하기" id="newUserRegister"></input>
                 </p>
             </form>

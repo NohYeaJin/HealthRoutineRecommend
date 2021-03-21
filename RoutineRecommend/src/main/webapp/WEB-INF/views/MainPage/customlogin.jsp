@@ -27,15 +27,16 @@
         <br>AI에 기반한 맞춤형 루틴 제공으로 운동 고민을 해결해 드립니다.</br>
         </p>
 
-    <form name="profile" action="" method="get">
+    <form id="my-form" action='<c:url value="/MainPage/login"/>' method="post">
         <input type="text" name="id" placeholder="아이디" id="userId"></input>
-        <p><input type="text" name="pw" placeholder="비밀번호" id="userPw"></input></p>
-        <p><input type="button" value="로그인" id="submitBtn"></input></p>
+        <p><input type="password" name="password" placeholder="비밀번호" id="userPw"></input></p>
+        <p><input type="submit" value="로그인" id="submitBtn"></input></p>
         <input type="button" value="회원가입" onClick="window.location.href='/register'" id="registerBtn"></input>
-    </form>      
+        <input type="hidden" name="${_csrf.parameterName}" value="${_crsf.token}"  />
+    </form>    
     </div>
 </body>
+<!--<script src="/resources/js/Login.js"></script>  -->
 
-<script src="/resources/js/Login.js"></script>
 
 </html>

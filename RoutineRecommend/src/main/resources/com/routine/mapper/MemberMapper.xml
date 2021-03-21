@@ -8,6 +8,7 @@ PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
 		<id column="member_num" property="member_num"></id>
 		<result column="id" property="id"></result>
 		<result column="password" property="password"></result>
+		<result column="userName" property="userName"></result>
 		<result column="joinDateTime" property="joinDateTime"></result>
 		<collection property="authList" resultMap = "authMap"></collection>
 	</resultMap>
@@ -18,10 +19,10 @@ PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="read" resultMap = "memberMap">
-		SELECT mem.id, auth FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id WHERE mem.id = #{id}
+		SELECT member_num,mem.id,password,userName,joinDateTime,auth,auth.member_id FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id WHERE mem.id = #{id}
 	</select>
 	
 	<select id="readAll" resultMap="memberMap">
-		SELECT mem.id, auth FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id 
+		SELECT member_num,mem.id,password,userName,joinDateTime,auth,auth.member_id FROM memberinfo mem LEFT OUTER JOIN memberauth auth on mem.id = auth.member_id 
 	</select>
 </mapper>
