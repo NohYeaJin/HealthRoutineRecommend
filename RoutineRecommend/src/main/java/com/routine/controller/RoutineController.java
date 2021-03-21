@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RoutineController {
 	
 	@RequestMapping("/")
-	public String toMainPage(Model model) {
-		model.addAttribute("welcome","welcome to main page!");
+	public String toLoginPage(Model model) {
 		
-		return "/MainPage/main";
+		return "/MainPage/login";
+	}
+	
+	@RequestMapping("/register")
+	public String toRegisterPage(Model model) {
+		
+		return "/MainPage/register";
 	}
 }
