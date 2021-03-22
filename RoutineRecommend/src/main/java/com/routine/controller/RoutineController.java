@@ -39,6 +39,10 @@ public class RoutineController {
 	@GetMapping("/customlogin")
 	public String toLoginPage(String error,Model model) {
 		log.info("err :" + error );
+		if(error!=null) {
+			model.addAttribute("msg","회원정보가 맞지 않습니다! 다시 확인해주세요");
+			return "/MainPage/customlogin";
+		}
 		return "/MainPage/customlogin";
 	}
 	
@@ -52,6 +56,8 @@ public class RoutineController {
 	
 	@PostMapping("/newUser")
 	public String register(UserVO userVO, AuthVO authVO, RedirectAttributes redirectAttributes) throws ParseException{
+		
+		//check if other user has same id
 		
 		
 		//user join date format

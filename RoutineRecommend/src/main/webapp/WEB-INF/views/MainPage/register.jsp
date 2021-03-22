@@ -23,7 +23,8 @@
 
         <h1 class="intro">운동 습관을 길러주는</h1>
         <h1 id="hilight">Beginner Gain</h1>
-
+		<!-- 회원 가입 form에서 들어가는 변수는 userName, id, password입니다 -->
+		<!-- submit버튼으로 form이 전송됩니다 -->
         <div class="newUserInfo">
             <form id="my-form" action="/newUser" method="post">
                 <input type="text" name="userName" placeholder="이름"></input>

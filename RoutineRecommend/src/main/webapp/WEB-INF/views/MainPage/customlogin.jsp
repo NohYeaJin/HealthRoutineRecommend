@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인페이지</title>
     <link rel="stylesheet" href="/resources/css/App.css">
- 
+ 	<!-- 한글 깨짐현상으로 인해 전부 utf-8로 통일  -->
+ 	<!--  css js파일 위치는 resource폴더 내에 위치 -->
 </head>
 <body>
     <div class="title">
@@ -26,7 +27,9 @@
         <p class="sub">운동을 처음 시작하시는 입문자이신가요?
         <br>AI에 기반한 맞춤형 루틴 제공으로 운동 고민을 해결해 드립니다.</br>
         </p>
-
+	<!-- form 안에 변수 name으로 표시된 id, password 전송 -->
+	<!-- 로그인 버튼으로 submit -->
+	<!-- csrf 설정을 통해 type=password로 설정된 값은 암호화해서 전송(개발자 도구에도 암호화로 뜸) -->
     <form id="my-form" action='<c:url value="/MainPage/login"/>' method="post">
         <input type="text" name="id" placeholder="아이디" id="userId"></input>
         <p><input type="password" name="password" placeholder="비밀번호" id="userPw"></input></p>
@@ -36,6 +39,7 @@
     </form>    
     </div>
 </body>
+<!-- 로그인 구현은 controller단에서 처리 완료, 이벤트 발생 구현중이어서 Login.js 일단 주석처리 -->
 <!--<script src="/resources/js/Login.js"></script>  -->
 
 
