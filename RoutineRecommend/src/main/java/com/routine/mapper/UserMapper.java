@@ -7,5 +7,7 @@ public interface UserMapper {
 	public void insert(UserVO userVO);
 	
 	public void insertAuth(String id);
+	
+	public int readbyId(String id);
 
 }

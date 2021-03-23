@@ -30,5 +30,9 @@ public class UserServiceImpl implements UserService{
 	public List<UserVO> showAll() {
 		return mapper2.readAll();
 	}
+	
+	public int checkid(String id) {
+		return mapper.readbyId(id);
+	}
 
 }

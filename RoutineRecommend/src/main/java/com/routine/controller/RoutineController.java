@@ -37,12 +37,13 @@ public class RoutineController {
 	}
 	
 	@GetMapping("/customlogin")
-	public String toLoginPage(String error,Model model) {
+	public String toLoginPage(String error,RedirectAttributes redirectAttributes,Model model) {
 		log.info("err :" + error );
 		if(error!=null) {
-			model.addAttribute("msg","회원정보가 맞지 않습니다! 다시 확인해주세요");
+			model.addAttribute("msg","INVALID");
 			return "/MainPage/customlogin";
 		}
+		model.addAttribute("msg","VALID");
 		return "/MainPage/customlogin";
 	}
 	
@@ -55,9 +56,13 @@ public class RoutineController {
 	
 	
 	@PostMapping("/newUser")
-	public String register(UserVO userVO, AuthVO authVO, RedirectAttributes redirectAttributes) throws ParseException{
+	public String register(UserVO userVO,AuthVO authVO, RedirectAttributes redirectAttributes) throws ParseException{
 		
 		//check if other user has same id
+		if(userService.checkid(userVO.getId())>0){
+			redirectAttributes.addFlashAttribute("msg","Already");
+			return "redirect:/register";
+		}
 		
 		
 		//user join date format
@@ -78,7 +83,7 @@ public class RoutineController {
 		userService.registerAuth(userVO.getId());
 		redirectAttributes.addFlashAttribute("msg","REGISTERED");
 		
-		return "redirect:/";
+		return "redirect:/customlogin";
 		
 	}
 	

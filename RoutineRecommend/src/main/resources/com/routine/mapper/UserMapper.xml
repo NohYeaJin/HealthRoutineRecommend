@@ -28,4 +28,9 @@ PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO memberauth (member_id, auth)
 		VALUES ( #{member_id}, "ROLE_MEMBER")
 	</insert>
+	
+	<select id="readbyId" resultType="int">
+		select count(*) from memberinfo
+		where id=#{id}
+	</select>
 </mapper>

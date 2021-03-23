@@ -10,5 +10,5 @@ public interface UserService {
 	public void register(UserVO userVO);
 	public void registerAuth(String id);
 	public List<UserVO> showAll();
-
+	public int checkid(String id);
 }

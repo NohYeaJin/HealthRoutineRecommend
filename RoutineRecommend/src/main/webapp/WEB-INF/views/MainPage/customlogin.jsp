@@ -42,5 +42,13 @@
 <!-- 로그인 구현은 controller단에서 처리 완료, 이벤트 발생 구현중이어서 Login.js 일단 주석처리 -->
 <!--<script src="/resources/js/Login.js"></script>  -->
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+	var msg = "${msg}";
+	if(msg=="REGISTERED"){
+		alert("회원 가입이 완료되었습니다! 이제 로그인 해주세요");
+	}else if(msg=="INVALID"){
+		alert("아이디나 비밀번호가 맞지 않습니다 다시 확인해주세요");
+	}
+</script>
 </html>

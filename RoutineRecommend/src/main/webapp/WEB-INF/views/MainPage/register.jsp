@@ -38,5 +38,11 @@
         </div>
     </div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+	var msg = "${msg}";
+	if(msg=="Already"){
+		alert("이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요");
+	}
+</script>
 </html>
