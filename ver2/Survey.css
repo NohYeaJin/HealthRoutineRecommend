@@ -1,0 +1,103 @@
+/*Survey Page CSS style*/
+
+.selectionPart{
+    margin-top: 60px;
+    margin-left: 280px;
+}
+
+#questionTitle{
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#questionSub{
+    margin-top: 0%;
+    text-align: center;
+}
+
+#subTitle{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#select{
+    background-color: #16a085;
+    font-weight: bold;
+    color: white;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+#select:hover{
+    background-color: #82cfbf;
+}
+
+/* first question page */
+.ageRange{
+    margin-bottom: 40px;
+}
+
+/* second question page */
+.tools{
+    margin-top: 70px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* third question page */
+.keyword{
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+/* last question page */
+.submit{
+    margin-left: 330px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#finishBtn{
+    border: none;
+    background-color: gray;
+    border-radius: 8px;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+
+/*화살표로 페이지 이동할 수 있는 부분*/
+.pageArrows{
+    font-size: 40px;
+    text-align: center;
+    color: gray;
+}
+.prev:hover, .next:hover{
+    color: darkgray;
+}
+
+.underDots{
+    margin-left: 8px;
+    margin-right: 8px
+}
+.dot{
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+ 
+  .active, .dot:hover {
+    background-color: #717171;
+  }

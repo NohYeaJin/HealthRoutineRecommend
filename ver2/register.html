@@ -12,9 +12,9 @@
 <body>
     <div class="title">
         <span id="title">Beginner Gain</span>
-        <span>오늘의 운동 시작하기</span>
-        <span>운동 기록 확인하기</span>
-        <span>사용자 정보 변경하기</span>
+        <span id="start">오늘의 운동 시작하기</span>
+        <span id ="recordCheck">운동 기록 확인하기</span>
+        <span id="userInfo">사용자 정보 변경하기</span>
     </div>
 
     <div class="createAccount">
@@ -29,11 +29,13 @@
                 <input type="text" name="id" placeholder="아이디"></input>
                 <p></p>
                 <input type="text" name="pw" placeholder="비밀번호"></input>
-                <p><input type="submit" value="가입 후 기본정보 입력하기" id="newUserRegister"></input>
+                <p><input type="button" value="가입 후 기본정보 입력하기" id="newUserRegister" onclick="movePage()"></input>
                 </p>
             </form>
         </div>
     </div>
 </body>
 
+<script src = "Register.js"></script>
+<script src="Navbar.js"></script>
 </html>
