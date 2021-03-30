@@ -33,18 +33,13 @@ const changeColor = "#82cfbf";
 
 function clickMenuHandler() {  
 
-  for (var i = 0; i < btns.length; i++){
-    
-    if(btns[i].style.backgroundColor === ""){
-      this.style.backgroundColor = changeColor;
-      console.log('색상 변경');
-    }
-    
-    //선택된거 다시 해제하는 기능?
-    else{
-      //this.style.backgroundColor= baseColor;
-      console.log('색상 다시 원위치');
-    }
+  if(this.style.backgroundColor === ""){
+    this.style.backgroundColor = changeColor;
+    console.log('색상 변경');
+  }
+  else{
+    this.style.backgroundColor = "";
+    console.log('색상 원위치');
   }
 }
 
