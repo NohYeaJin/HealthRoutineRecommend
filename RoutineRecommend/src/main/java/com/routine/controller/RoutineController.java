@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,9 @@ public class RoutineController {
 	@Setter(onMethod_=@Autowired)
 	private UserService userService;
 	
-	@RequestMapping("/")
+	private static PythonInterpreter intpre;
+	
+	@RequestMapping("/main")
 	public String toMainPage(Model model) {
 
 		return "/MainPage/main";
@@ -67,7 +70,7 @@ public class RoutineController {
 		
 		//user join date format
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분ss초");
+		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy�뀈 MM�썡dd�씪 HH�떆mm遺꼜s珥�");
 		Date joinDate = format2.parse(format2.format(cal.getTime()));
 		userVO.setJoinDateTime(joinDate);
 		
@@ -101,4 +104,23 @@ public class RoutineController {
 		
 		return "/MainPage/loginsuccess";
 	}
+	
+	@RequestMapping("/survey")
+	public String toSurveyPage() {
+		
+		return "/MainPage/survey";
+	}
+	
+	@RequestMapping("/userInfoEdit")
+	public String touseredit() {
+		return "/MainPage/userInfoEdit";
+	}
+	
+	@RequestMapping("/workoutRecordCheck")
+	public String tocheckPage() { 
+		return "/MainPage/workoutRecordCheck";
+	}
+	
+	
+	
 }
