@@ -35,6 +35,7 @@
                         <input type="button" value="10대" id="select">
                         <input type="button" value="20대" id="select">
                         <input type="button" value="30대" id="select">
+                        <br>
                         <input type="button" value="40대" id="select">
                         <input type="button" value="50대 이상" id="select">
                     </div>
