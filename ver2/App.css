@@ -11,6 +11,12 @@ span{
     margin-right: 40px;
 }
 
+#title, #start, #recordCheck, #userInfo{
+    color: #16a085;
+    cursor: pointer;
+}
+
+
 /*Login.js*/
 #title{
     font-weight: bold;

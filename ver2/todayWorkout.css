@@ -6,6 +6,14 @@
     font-size: 100px;
 }
 
+#msg1{
+    margin-bottom: 5px;
+}
+#motivator{
+    margin-top: 2px;
+    color: gray;
+}
+
 /*운동 루틴 표시하는 부분*/
 .routineArea{
     text-align: center;
@@ -23,7 +31,7 @@
 
 #btnArea{
     text-align: center;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 #btn1, #btn2, #btn3{
     width: 400px;
@@ -35,4 +43,8 @@
     border: none;
     font-weight: bold;
     color: white;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover{
+    background-color: #6cac9f;
 }
