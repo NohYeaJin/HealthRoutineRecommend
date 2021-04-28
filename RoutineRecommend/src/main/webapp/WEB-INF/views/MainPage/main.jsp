@@ -4,27 +4,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="/resources/css/App.css">
 </head>
 <body>
-<!-- 로그인 페이지가 메인페이지가 되면 안되서 -->
-<!-- 임의로 만든 메인페이지 입니다 -->
-This is Main Page!
-<!-- sec태그의 isAuthenticated()는 로그인한 회원에게만 보입니다 -->
-<!-- sec태그의 hasrole(admin)은 관리자로 로그인한 회원에게만 보입니다 -->
-<!-- 로그인한 회원이라면 logout이 보이고, 그 중 관리자라면 회원관리, 운동종목 관리가 보입니다 -->
-<br>
- <sec:authorize access="isAuthenticated()">
- 	<a href="/logout">Logout</a>
- </sec:authorize>
-<br> 
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-	<a href="/admin/member">회원관리</a>
-	<a href="/admin/exercises">운동종목관리</a>
-</sec:authorize>
-<br>
-Go to login Page
-<a href="/customlogin">loginPage</a>
+    <div class="title">
+        <span id="title">Beginner Gain</span>
+        <span id = "start">오늘의 운동 시작하기</span>
+        <span id="recordCheck">운동 기록 확인하기</span>
+        <span id="userInfo">사용자 정보 변경하기</span>
+      </div>
+    
+    <div>
+    <h1 class="intro">운동 습관을 길러주는</h1>
+    <h1 id="hilight">Beginner Gain</h1>
+
+        <p class="sub">운동을 처음 시작하시는 입문자이신가요?
+        <br>AI에 기반한 맞춤형 루틴 제공으로 운동 고민을 해결해 드립니다.</br>
+        </p>
+
+    <form name="profile" action="" method="get" autocompile="on" id="loginForm">
+        <input type="text" name="id" placeholder="아이디" id="userId"></input>
+        <p><input type="text" name="pw" placeholder="비밀번호" id="userPw"></input></p>
+        <p><input type="button" value="로그인" id="submitBtn"></input></p>
+        <input type="button" value="회원가입" onClick="window.location.href='register.html'" id="registerBtn"></input>
+    </form>      
+    </div>
 </body>
+
+<script src="Login.js"></script>
+<script src="Navbar.js"></script>
 </html>

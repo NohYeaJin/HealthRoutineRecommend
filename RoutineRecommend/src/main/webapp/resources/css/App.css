@@ -11,6 +11,12 @@ span{
     margin-right: 40px;
 }
 
+#title, #start, #recordCheck, #userInfo{
+    color: #16a085;
+    cursor: pointer;
+}
+
+
 /*Login.js*/
 #title{
     font-weight: bold;
@@ -34,7 +40,7 @@ span{
     margin-top: 0;
 }
 
-form{
+#loginForm{
     text-align: center;
 }
 input{
@@ -75,13 +81,4 @@ input{
     color: white;
     border: none;
     border-radius: 5px;
-}
-
-/*Survey Page CSS style*/
-.questionSlides{
-    text-align: center;
-}
-
-#question1{
-    text-align: center;
 }

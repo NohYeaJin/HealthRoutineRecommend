@@ -121,6 +121,7 @@
    
    
 </body>
+
 <script src="/resources/js/Survey.js"></script>
 <script src="/resources/js/Navbar.js"></script>
 </html>

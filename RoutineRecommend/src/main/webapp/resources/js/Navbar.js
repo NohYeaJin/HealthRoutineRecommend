@@ -18,18 +18,18 @@ function handleClick(){
 }
 
 function movePage1(){
-    window.location.href = "todayWorkout";
+    window.location.href = "/todayWorkout";
 }
 
 function movePage2(){
-    window.location.href = "workoutRecordCheck";
+    window.location.href = "/workoutRecordCheck";
 }
 
 function movePage3(){
-    window.location.href = "userInfoEdit";
+    window.location.href = "/userInfoEdit";
 }
 function movetoMain(){
-    window.location.href="main";
+    window.location.href="/";
 }
 
 function init(){

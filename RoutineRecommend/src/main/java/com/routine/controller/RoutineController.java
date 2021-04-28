@@ -33,10 +33,11 @@ public class RoutineController {
 	
 	private static PythonInterpreter intpre;
 	
-	@RequestMapping("/main")
-	public String toMainPage(Model model) {
-
-		return "/MainPage/main";
+	
+	
+	@RequestMapping("/")
+	public String toMainPage(Model model) {		
+		return "/MainPage/customlogin";
 	}
 	
 	@GetMapping("/customlogin")
@@ -111,6 +112,12 @@ public class RoutineController {
 		return "/MainPage/survey";
 	}
 	
+	@PostMapping("/surveyInput")
+	public String inputSurvey() {
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/userInfoEdit")
 	public String touseredit() {
 		return "/MainPage/userInfoEdit";
@@ -119,6 +126,16 @@ public class RoutineController {
 	@RequestMapping("/workoutRecordCheck")
 	public String tocheckPage() { 
 		return "/MainPage/workoutRecordCheck";
+	}
+	
+	@RequestMapping("/todayWorkout")
+	public String toTodayWorkoutCheckPage() { 
+		return "/MainPage/todayWorkout";
+	}
+	
+	@RequestMapping("/example")
+	public String toExamplePage() { 
+		return "/MainPage/example";
 	}
 	
 	
