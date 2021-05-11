@@ -1,0 +1,185 @@
+.introArea{
+    text-align: center;
+    margin-top: 60px;
+}
+.introTitle{
+    font-size: 100px;
+}
+
+#msg1{
+    margin-bottom: 5px;
+}
+#motivator{
+    margin-top: 2px;
+    color: gray;
+}
+
+/*운동 루틴 표시하는 부분*/
+.routineArea{
+    text-align: center;
+}
+#bgRect{
+    position: fixed;
+    top: 40%; left: 29%;
+    width: 600px;
+    height: 300px;
+    opacity: 0.54;
+    background-color: #1abc9c;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+#btnArea{
+    text-align: center;
+    margin-top: 60px;
+}
+#btn1, #btn2, #btn3{
+    width: 400px;
+    height: 55px;
+    background-color: #16a085;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover{
+    background-color: #6cac9f;
+}
+
+/*모달창*/
+.modal{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items : center;
+}
+.md_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%; height: 100%;
+    position: absolute;
+}
+.md_content {
+    width: 700px;
+    height: 500px;
+    position: relative;
+    padding: 20px 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+}
+#modal_title{
+    font-size: 30px;
+}
+
+.hidden {
+    display: none;
+}
+.modal_text { padding: 16px; }
+
+#md_videoArea{
+    margin-left: 30px;
+}
+#countBtn{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border-style: none;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: #16a085;
+    color: white;
+    position: relative;
+    bottom: 150px;
+    left: 30px;
+    cursor: pointer;
+}
+
+#closeBtn{
+    width: 180px;
+    height: 30px;
+    background-color: gray;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 50px;
+}
+
+/*피드백 모달창*/
+.modalF{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items : center;
+}
+.mdF_overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%; height: 100%;
+    position: absolute;
+}
+.mdF_content {
+    width: 700px;
+    height: 200px;
+    position: relative;
+    padding: 20px 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+}
+
+.hidden {
+    display: none;
+}
+.modal_text { padding: 16px; }
+
+#modalFeedback_title{
+    font-size: 27px;
+    margin-bottom: 0%;
+    margin-top: 10px;
+}
+#modalFeedback_subtitle{
+    margin-top: 10px;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+#closeBtnF{
+    width: 180px;
+    height: 30px;
+    background-color: gray;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 30px;
+    cursor: pointer;
+}
+
+#feedbackBtn{
+    background-color: #16a085;
+    color: white;
+    border-radius: 20px;
+    border-style: none;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#feedbackBtn:hover{
+    background-color: #84d5c5;
+}

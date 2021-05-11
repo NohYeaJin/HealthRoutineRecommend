@@ -31,7 +31,7 @@
 
 #btnArea{
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 #btn1, #btn2, #btn3{
     width: 400px;
@@ -65,8 +65,8 @@
     position: absolute;
 }
 .md_content {
-    width: 400px;
-    height: 300px;
+    width: 700px;
+    height: 500px;
     position: relative;
     padding: 20px 50px;
     background-color: white;
