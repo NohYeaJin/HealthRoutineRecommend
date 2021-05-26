@@ -1,3 +1,4 @@
+localStorage.clear()
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
@@ -9,18 +10,6 @@ var btn2click = 0;
 var btn3click = 0;
 
 
-/*캘린더 표시용 클릭횟수 카운트*/
-//바로 아랫부분 대체 여부 검토하기
-/*
-function countForColor(){
-    console.log(cnt);
-    localStorage.setItem('colorIdx',cnt);
-    cnt += 1;
-};
-for(let i=0; i<btn.length; i++){
-    btn[i].addEventListener('click',countForColor);
-}
-*/
 //총 합 구하기...
 const str1 = parseInt(btn1.value.split(" ")[1]);
 const str2 = parseInt(btn2.value.split(" ")[1]);
@@ -43,22 +32,23 @@ else if(parseInt(localStorage.getItem('colorIdx_%'))/total > 0.6){
 
 function btn1CountforFeedback(){
     console.log('btn1클릭');
-    localStorage.setItem('btn1Click',btn1click);
     btn1click += 1;
+    localStorage.setItem('btn1Click',btn1click);
     console.log('valid:'+ btn1click);
 }
 
 function btn2CountforFeedback(){
     console.log('btn2클릭');
-    localStorage.setItem('btn2Click',btn2click);
     btn2click += 1;
+    localStorage.setItem('btn2Click',btn2click);
 }
 
 function btn3CountforFeedback(){
     console.log('btn3클릭');
-    localStorage.setItem('btn3Click',btn3click);
     btn3click += 1;
+    localStorage.setItem('btn3Click',btn3click);
 }
+
 var valid = parseInt(localStorage.getItem('btn1Click'));
 btn1.addEventListener('click',btn1CountforFeedback);
 btn2.addEventListener('click',btn2CountforFeedback);
@@ -71,7 +61,6 @@ function init(){
     btn3CountforFeedback();
 };
 
-init();
 
 //동작 가이드 모달 부분
 
@@ -83,42 +72,73 @@ const closeButton = document.getElementById("closeBtn");
 
 /* 피드백 모달 부분 변수 */
 const modalF = document.querySelector(".modalF");
-//const overlayF = modalF.querySelector(".mdF_overlay");
+const overlayF = modalF.querySelector(".mdF_overlay");
 const closeButtonF = document.getElementById("closeBtnF");
 
-
-
-//동작 가이드 모달 부분 함수
-function openModal(){
-    modal.classList.remove("hidden");
+function openModal1(){
+    if(btn1click == 1){
+        modalF.classList.remove("hidden");
+    }
+    else{
+        localStorage.setItem('btn1Click',btn1click);
+        reps(1);
+        modal.classList.remove("hidden");
+    }
 }
+
+function openModal2(){
+    if(btn2click == 1){
+        modalF.classList.remove("hidden");
+    }
+    else{
+        localStorage.setItem('btn2Click',btn2click);
+        reps(2);
+        modal.classList.remove("hidden");
+    }
+}
+
+function openModal3(){
+    if(btn3click == 1){
+        modalF.classList.remove("hidden");
+    }
+    else{
+        localStorage.setItem('btn3Click',btn3click);
+        reps(3);
+        modal.classList.remove("hidden");
+    }
+}
+
 function closeModal(){
     modal.classList.add("hidden");
+    if(parseInt(localStorage.getItem('btn1Click')) > 1){
+        achieve(1);
+        localStorage.setItem('btn1Click', 1);
+    }
+    else if(parseInt(localStorage.getItem('btn2Click')) > 1){
+        achieve(2);
+        localStorage.setItem('btn2Click', 1);
+    }
+    else if(parseInt(localStorage.getItem('btn3Click')) > 1){
+        achieve(3);
+        localStorage.setItem('btn3Click', 1);
+    }
+        
 }
 
-btn1.addEventListener("click",openModal);
-//btn1.addEventListener('click',validUpdate);
+function closeModalF(){
+    modalF.classList.add("hidden");
+}
 
-btn2.addEventListener("click",openModal);
-btn3.addEventListener("click",openModal);
+btn1.addEventListener("click",openModal1);
+btn2.addEventListener("click",openModal2);
+btn3.addEventListener("click",openModal3);
+
+
 closeButton.addEventListener("click",closeModal);
+closeButtonF.addEventListener("click",closeModalF);
 
-closeButton.addEventListener('click',openfeedback); //이부분 추후 수정
-closeButtonF.addEventListener('click',closefeedback);
-//closeButton.addEventListener('click',openfeedback);
 overlay.addEventListener("click",closeModal);
-
-
-//동작 가이드 모달 - 횟수 카운트 부분
-var countBtn = document.getElementById('countBtn');
-countBtn.addEventListener('click',cntCheck);
-
-function cntCheck(){
-    cnt2 += 1;
-    localStorage.setItem('colorIdx_%',cnt2);
-    
-}
-
+overlayF.addEventListener("click",closeModal);
 
 
 //피드백 모달 부분
@@ -148,6 +168,71 @@ function clickHandler() {
   }
 }
 
-for(let i=0; feedbackBtns.length; i++){
-    feedbackBtns[i].addEventListener('click', clickHandler);
+//세트 추가하기
+
+function myFunction(btnNumber) {
+    var h = document.getElementById("lalala");
+    cnt += 1;
+    h.insertAdjacentHTML("beforeend", `<div>${cnt}세트 <input id="set_add_inputbox" class="${cnt}" type="text" value=""> / 10회</div>`);
+}
+
+// 운동 목록에 표시된 횟수만큼 기록 영역 출력
+function reps(btnNumber) {
+    var h = document.getElementById("lalala");
+    while(h.firstChild)
+        h.removeChild(h.lastChild);
+    var str = "";
+    if(btnNumber == 1){
+        str = document.getElementById("btn1").value;
+    }
+    else if(btnNumber == 2){
+        str = document.getElementById("btn2").value;
+    }
+    else if(btnNumber == 3){
+        str = document.getElementById("btn3").value;
+    }
+    var list = str.split(' ');
+    console.log(list[1])
+    var reps = parseInt(list[1]);
+    for(cnt = 0; cnt < reps; cnt++){
+        h.insertAdjacentHTML("beforeend", `<div>${cnt+1}세트 <input id="set_add_inputbox" class="${cnt+1}" type="text" value=""> / 10회</div>`);
+    }
+}
+
+//입력값에 따라 달성도 표시한거 localstorage에 저장.
+function achieve(exercise){
+    var sum = 0
+    var result = 0
+    if(exercise == 1){
+        for(i=1; i<=cnt; ++i){
+            temp = document.getElementsByClassName(""+i)[0].value;
+            if(temp){
+                sum += parseInt(temp)
+            }
+        }
+        result = sum/(10*cnt) * 100;
+        localStorage.setItem('sum1', result);
+    }
+    else if(exercise == 2){
+        for(i=1; i<=cnt; ++i){
+            temp = document.getElementsByClassName(""+i)[0].value;
+            if(temp){
+                sum += parseInt(temp)
+            }
+        }
+        result = sum/(10*cnt) * 100;
+        localStorage.setItem('sum2', result);
+    }
+    else if(exercise == 3){
+        for(i=1; i<=cnt; ++i){
+            temp = document.getElementsByClassName(""+i)[0].value;
+            if(temp){
+                sum += parseInt(temp)
+            }
+        }
+        result = sum/(10*cnt) * 100;
+        localStorage.setItem('sum3', result);
+    }
+    console.log("sum=" + result)
+    
 }

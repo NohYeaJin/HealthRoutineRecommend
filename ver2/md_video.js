@@ -11,7 +11,7 @@ var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '300',
-    width: '440',
+    width: '330',
     videoId: 'aoH7qNedO8k', //https://www.youtube.com/watch?v=IUT1qAhMY4w
     /* 유튜브 링크에서 watch?v = "" 큰따옴표 사이에 들어가는게 videoId */
     playerVars:{

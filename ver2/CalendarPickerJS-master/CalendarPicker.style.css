@@ -114,6 +114,30 @@
     box-sizing: inherit;
 }
 
+#calendar #calendar-grid time.selected--low,
+#calendar #calendar-grid time.selected--low:focus {
+    outline: none;
+    background-color: #98FB98;
+    color: white;
+    box-sizing: inherit;
+}
+
+#calendar #calendar-grid time.selected--normal,
+#calendar #calendar-grid time.selected--normal:focus {
+    outline: none;
+    background-color: #64CD3C;
+    color: white;
+    box-sizing: inherit;
+}
+
+#calendar #calendar-grid time.selected--high,
+#calendar #calendar-grid time.selected--high:focus {
+    outline: none;
+    background-color: #2E8B57;
+    color: white;
+    box-sizing: inherit;
+}
+
 #calendar #calendar-grid time.disabled,
 #calendar #calendar-grid time.disabled:focus {
     outline: none;

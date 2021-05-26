@@ -11,14 +11,14 @@ const newColor = "#16a085";
 function handleClick(){
     const currnetColor = start.style.color;
     if(currnetColor === baseColor){
-        start.style.color = newColor;
+        this.style.color = newColor;
     }else{
-        start.style.color = baseColor;
+        this.style.color = baseColor;
     }
 }
 
 function movePage1(){
-    window.location.href = "todayWorkout.html";
+    window.location.href = "todayWorkoutTest.html";
 }
 
 function movePage2(){
@@ -38,12 +38,12 @@ function init(){
     start.addEventListener('click',handleClick);
 
     userInfo.style.color = baseColor;
-    userInfo.addEventListener('click',handleClick);
     userInfo.addEventListener('click',movePage3);
+    userInfo.addEventListener('click',handleClick);
 
     recordCheck.style.color = baseColor;
-    recordCheck.addEventListener('click',handleClick);
     recordCheck.addEventListener('click',movePage2);
+    recordCheck.addEventListener('click',handleClick);
 
     title.addEventListener('click', movetoMain);
 }

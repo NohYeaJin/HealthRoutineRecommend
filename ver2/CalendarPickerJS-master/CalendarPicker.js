@@ -252,6 +252,29 @@ CalendarPicker.prototype._insertDaysIntoGrid = function () {
 
     var arrayOfDays = this._getDaysInMonth(this.month, this.year);
     var firstDayOfMonth = arrayOfDays[0].getDay();
+    var achive1 = 0;
+    var achive2 = 0;
+    var achive3 = 0;
+    if(localStorage.getItem('sum1')){
+        achive1 = parseInt(localStorage.getItem('sum1'));
+        console.log("sum1 exist")
+    }
+    else 
+        console.log("sum1 not exist")
+    if(localStorage.getItem('sum2')){
+        achive2 = parseInt(localStorage.getItem('sum2'));
+        console.log("sum2 exist")
+    }
+    else
+        console.log("sum2 not exist")
+    if(localStorage.getItem('sum3')){
+        achive3 = parseInt(localStorage.getItem('sum3'));
+        console.log("sum3 exist")
+    }
+    else
+        console.log("sum3 not exist")
+
+    var achievement = (achive1 + achive2 + achive3) / 3;
 
     // Converting Sunday (0 when using getDay()) to 7 to make it easier to work with.
     firstDayOfMonth = firstDayOfMonth === 0 ? 7 : firstDayOfMonth;
@@ -281,6 +304,15 @@ CalendarPicker.prototype._insertDaysIntoGrid = function () {
 
     this.calendarElement.appendChild(this.calendarGrid);
     this.activeDateElement.classList.add('selected');
+    console.log(achievement)
+    if(achievement != 0){
+        if (achievement <= 30)
+            this.activeDateElement.classList.add('selected--low');
+        else if(achievement <= 60)
+            this.activeDateElement.classList.add('selected--normal');
+        else if(achievement > 60)
+            this.activeDateElement.classList.add('selected--high');
+    }
 }
 
 /**
