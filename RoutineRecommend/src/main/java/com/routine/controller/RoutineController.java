@@ -1,5 +1,6 @@
 package com.routine.controller;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.routine.domain.AuthVO;
+import com.routine.domain.SurveyResultVO;
 import com.routine.domain.UserVO;
+import com.routine.service.SurveyService;
 import com.routine.service.UserService;
 
 import lombok.Setter;
@@ -30,6 +33,9 @@ public class RoutineController {
 	
 	@Setter(onMethod_=@Autowired)
 	private UserService userService;
+	
+	@Setter(onMethod_=@Autowired)
+	private SurveyService surveyService;
 	
 	private static PythonInterpreter intpre;
 	
@@ -47,8 +53,24 @@ public class RoutineController {
 			model.addAttribute("msg","INVALID");
 			return "/MainPage/customlogin";
 		}
+		
 		model.addAttribute("msg","VALID");
 		return "/MainPage/customlogin";
+	}
+	
+	@RequestMapping("/checkSurvey")
+	public String checkSurvey(Principal principal) {
+		//check if user has survey data
+		if(surveyService.readSurvey(principal.getName())==0) {
+			
+			//if data doesn't exist, do survey
+			return "redirect:/survey";
+		}
+		else {
+			
+			//if data exists, go to todayworkout page
+			return "redirect:/todayWorkout";
+		}
 	}
 	
 	@RequestMapping("/register")
@@ -112,6 +134,15 @@ public class RoutineController {
 		return "/MainPage/survey";
 	}
 	
+	@GetMapping("/insertSurvey")
+	public String insertSurvey(Principal principal,SurveyResultVO surveyresultVO) {
+		surveyresultVO.setUser_id(principal.getName());
+		surveyService.insertData(surveyresultVO);
+		log.info(surveyresultVO);
+		
+		return "redirect:/todayWorkout";
+	}
+	
 	@PostMapping("/surveyInput")
 	public String inputSurvey() {
 		
@@ -129,7 +160,34 @@ public class RoutineController {
 	}
 	
 	@RequestMapping("/todayWorkout")
-	public String toTodayWorkoutCheckPage() { 
+	public String toTodayWorkoutCheckPage(Principal principal,Model model) {
+		model.addAttribute("username", principal.getName());
+		model.addAttribute("keyword",surveyService.readSurveyKeyword(principal.getName()));
+		
+		//sample data -> need python return data later
+		String first = "윗몸일으키기";
+		String numberDes1 = "시간";
+		String firstdata = "10분";
+		
+		String second = "팔굽혀펴기";
+		String numberDes2 = "횟수";
+		String seconddata = "20번";
+		
+		String third = "플랭크";
+		String numberDes3 = "세트";
+		String thirddata = "5세트 20회";
+		
+		model.addAttribute("first",first);
+		model.addAttribute("numberDes1",numberDes1);
+		model.addAttribute("firstdata",firstdata);
+		model.addAttribute("second",second);
+		model.addAttribute("numberDes2",numberDes2);
+		model.addAttribute("numberDes1",numberDes1);
+		model.addAttribute("seconddata",seconddata);
+		model.addAttribute("third",third);
+		model.addAttribute("numberDes3",numberDes3);
+		model.addAttribute("thirddata",thirddata);
+		
 		return "/MainPage/todayWorkout";
 	}
 	

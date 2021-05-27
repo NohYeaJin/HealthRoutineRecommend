@@ -9,7 +9,7 @@
 <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 <security:http auto-config="true" use-expressions="true">
 	<security:intercept-url pattern="/MainPage/customlogin" access="permitAll" />
-	<security:form-login login-page="/" login-processing-url="/MainPage/login" username-parameter="id" password-parameter="password" default-target-url="/loginsuccess"/>
+	<security:form-login login-page="/" login-processing-url="/MainPage/login" username-parameter="id" password-parameter="password" default-target-url="/checkSurvey"/>
 	<security:csrf disabled="true" />
 	
 	

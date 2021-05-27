@@ -6,7 +6,7 @@
 
 #myCalendarWrapper {
     width: 900px;
-    height: 500px;
+    height: 600px;
     border: 1px dashed gray;
     border-radius: 20px;
     position: center;
@@ -110,6 +110,30 @@
 #calendar #calendar-grid time.selected:focus {
     outline: none;
     background-color: gray;
+    color: white;
+    box-sizing: inherit;
+}
+
+#calendar #calendar-grid time.selected--low,
+#calendar #calendar-grid time.selected--low:focus {
+    outline: none;
+    background-color: #98FB98;
+    color: white;
+    box-sizing: inherit;
+}
+
+#calendar #calendar-grid time.selected--normal,
+#calendar #calendar-grid time.selected--normal:focus {
+    outline: none;
+    background-color: #64CD3C;
+    color: white;
+    box-sizing: inherit;
+}
+
+#calendar #calendar-grid time.selected--high,
+#calendar #calendar-grid time.selected--high:focus {
+    outline: none;
+    background-color: #2E8B57;
     color: white;
     box-sizing: inherit;
 }

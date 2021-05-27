@@ -8,10 +8,11 @@ import lombok.Data;
 public class SurveyResultVO {
 	private String user_id;
 	private String gender;
-	private int age;
+	private String age;
 	private List<EquipmentListVO> equipmentList;
-	private String kind;
-	private int time;
-	private int frequency;
+	private String keyword;
+	private String time;
+	private String frequency;
+	private String tool;
 	
 }

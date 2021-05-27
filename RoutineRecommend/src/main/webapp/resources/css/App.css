@@ -16,6 +16,25 @@ span{
     cursor: pointer;
 }
 
+/*언어 영역*/
+.language{
+    color: gray;
+    margin-left: 100px;
+    margin-right: 20px;
+}
+#languageTitle{
+    font-weight: bolder;
+}
+#구분선{
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+}
+
+#KOR, #FRN, #IND{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
 /*Login.js*/
 #title{
