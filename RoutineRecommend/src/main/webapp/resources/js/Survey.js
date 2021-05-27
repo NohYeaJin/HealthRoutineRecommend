@@ -49,12 +49,22 @@ for (var i = 0; i < btns.length; i++){
 }
 
 
+var btn = document.querySelector('input');
+var formtxt = document.querySelector('form');
+
+function inputvalue(namevalue,realvalue) {
+  var newdiv = document.createElement("input");
+  newdiv.type = "hidden"
+  newdiv.name=namevalue;
+  newdiv.value = realvalue;
+  formtxt.append(newdiv);
+}
 /* 페이지 넘기기(submit하고 오늘의 운동 안내 페이지로 넘기기) */
 
-const finishAndSubmit = document.getElementById("finishBtn");
+/*const finishAndSubmit = document.getElementById("finishBtn");
 
 function movePage(){
   window.location.href="/todayWorkout";
 }
 
-finishAndSubmit.addEventListener('click',movePage);
+finishAndSubmit.addEventListener('click',movePage);*/

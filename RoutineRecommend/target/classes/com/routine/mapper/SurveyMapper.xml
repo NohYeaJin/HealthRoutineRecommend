@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "=//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.routine.mapper.SurveyMapper">
+
+	<resultMap id="equipmentMap" type="com.routine.domain.EquipmentListVO">
+		<result column="user_id" property="user_id"></result>
+		<result column="tool" property="tool"></result>
+		
+	</resultMap>
+	
+	<resultMap id="surveyMap" type="com.routine.domain.SurveyResultVO">
+		<result column="user_id" property="user_id"></result>
+		<result column="gender" property="gender"></result>
+		<result column="age" property="age"></result>		
+		<result column="keyword" property="keyword"></result>
+		<result column="user_level" property="user_level"></result>
+		<result column="time" property="time"></result>
+		<result column="frequency" property="frequency"></result>
+		<result column="tool" property="tool"></result>
+		<collection property="equipment" resultMap = "equipmentMap"></collection>
+	</resultMap>
+	
+	<insert id="insert" parameterType="com.routine.domain.SurveyResultVO">
+		INSERT INTO survey (user_id,gender,age,keyword,time,frequency,tool)
+		VALUES(#{user_id},#{gender},#{age},#{keyword},#{time},#{frequency},#{tool})
+	</insert>
+	
+	<insert id="insertTool" parameterType="com.routine.domain.ToolVO">
+		INSERT INTO tool (user_id,tool) VALUES (#{user_id},#{tool})
+	</insert>
+	
+	<select id="read" resultType="int">
+		SELECT COUNT(*) from survey WHERE #{user_id} = user_id
+	</select>
+	
+	<select id="show" resultMap="surveyMap">
+		SELECT user_id,gender,age,time,frequency,keyword,tool
+		from survey s
+	</select>
+	
+	<select id="readKeyword" resultType="string">
+		SELECT keyword from survey WHERE #{user_id} = user_id
+	</select>
+
+
+</mapper>
