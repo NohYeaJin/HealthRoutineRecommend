@@ -40,11 +40,13 @@
 <script src="Navbar.js"></script>
 <script src="./CalendarPickerJS-master/CalendarPicker.js"></script>
 <script>
+    
     const nextYear = new Date().getFullYear() + 1;
     const myCalender = new CalendarPicker('#myCalendarWrapper', {
         
     });
-
+    
+/*
     myCalender.onValueChange((currentValue) => {
         currentDateElement.textContent = currentValue;
         currentDayElement.textContent = currentValue.getDay();
@@ -52,5 +54,6 @@
 
         console.log(`The current value of the calendar is: ${currentValue}`);
     });
+*/
 </script>
 </html>

@@ -25,6 +25,27 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+/* 중복 방지 */
+var doubleSubmitFlag = false;
+function doubleSubmitCheck(){
+    if(doubleSubmitFlag){
+        return doubleSubmitFlag;
+    }else{
+        doubleSubmitFlag = true;
+        return false;
+    }
+}
+
+function insert(){
+  if(doubleSubmitCheck()) return;
+  console.log('clicked');
+}
+
+var btnselect = document.querySelectorAll('input');
+for(i = 0; i< btnselect.length; i++){
+  btnselect[i].addEventListener('click',insert());
+}
+
 
 /* 클릭시 색상 변경 */
 const btns = document.querySelectorAll('#select');
@@ -58,4 +79,6 @@ function movePage(){
 }
 
 finishAndSubmit.addEventListener('click',movePage);
+
+
 

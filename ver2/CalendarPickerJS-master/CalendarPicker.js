@@ -305,7 +305,26 @@ CalendarPicker.prototype._insertDaysIntoGrid = function () {
     this.calendarElement.appendChild(this.calendarGrid);
     this.activeDateElement.classList.add('selected');
     console.log(achievement)
-    if(achievement != 0){
+
+    for (i=0; i<31; i++){
+        if (document.querySelectorAll('time')[i] == "${날짜}"){ //
+            if(achievement <= 30){
+                document.querySelectorAll('time')[i].classList.add('selected--low');
+            }
+            else if(achievement <= 60){
+                document.querySelectorAll('time')[i].classList.add('selected--normal');
+            }
+            else if(achievement > 60){
+                document.querySelectorAll('time')[i].classList.add('selected--high');
+            }
+        }
+}
+
+
+
+
+
+    if(achievement != 0){ //achievement = 달성률
         if (achievement <= 30)
             this.activeDateElement.classList.add('selected--low');
         else if(achievement <= 60)
@@ -314,6 +333,7 @@ CalendarPicker.prototype._insertDaysIntoGrid = function () {
             this.activeDateElement.classList.add('selected--high');
     }
 }
+
 
 /**
  * @description Updates the core-values for the calendar based on the new month and year
@@ -345,3 +365,4 @@ CalendarPicker.prototype.onValueChange = function (callback) {
     this.callback = callback;
 }
 
+//document.querySelectorAll('time')[10].classList.add('selected-normal');

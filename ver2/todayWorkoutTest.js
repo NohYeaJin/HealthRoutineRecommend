@@ -82,7 +82,9 @@ function openModal1(){
     else{
         localStorage.setItem('btn1Click',btn1click);
         reps(1);
-        modal.classList.remove("hidden");
+        if(reps(1) != 0){  //reps(1): 1번 운동(첫번째 버튼)의 세트수 
+         modal.classList.remove("hidden");
+        }
     }
 }
 
@@ -93,7 +95,9 @@ function openModal2(){
     else{
         localStorage.setItem('btn2Click',btn2click);
         reps(2);
-        modal.classList.remove("hidden");
+        if(reps(2) != 0){  //reps(2) :2번 운동(두번째 버튼)의 세트수
+            modal.classList.remove("hidden");
+        }
     }
 }
 
@@ -104,7 +108,9 @@ function openModal3(){
     else{
         localStorage.setItem('btn3Click',btn3click);
         reps(3);
-        modal.classList.remove("hidden");
+        if(reps(3) != 0){  //reps(3) :3번 운동(두번째 버튼)의 세트수
+            modal.classList.remove("hidden");
+        }
     }
 }
 
@@ -183,19 +189,22 @@ function reps(btnNumber) {
         h.removeChild(h.lastChild);
     var str = "";
     if(btnNumber == 1){
-        str = document.getElementById("btn1").value;
+        str = document.getElementById("btn1").value; //운동 1의 세트 수
     }
     else if(btnNumber == 2){
-        str = document.getElementById("btn2").value;
+        str = document.getElementById("btn2").value; //운동 2의 세트 수
     }
     else if(btnNumber == 3){
-        str = document.getElementById("btn3").value;
+        str = document.getElementById("btn3").value; //운동 3의 세트 수
     }
-    var list = str.split(' ');
-    console.log(list[1])
-    var reps = parseInt(list[1]);
+    var list = str.split(' ');// ['운동명','세트수', '세트(그냥 문자열)']로 구성되어있습니다.
+    console.log(list[1]) 
+    var reps = parseInt(list[1]); //세트 수
     for(cnt = 0; cnt < reps; cnt++){
-        h.insertAdjacentHTML("beforeend", `<div>${cnt+1}세트 <input id="set_add_inputbox" class="${cnt+1}" type="text" value=""> / 10회</div>`);
+        h.insertAdjacentHTML("beforeend", `<div>${cnt+1}세트 <input id="set_add_inputbox" class="${cnt+1}" type="text" value=""> / {총횟수}회</div>`);
+        //cnt로 지정한 이유는 [1회 (사용자 입력) / 10세트] , [2회 (사용자 입력) / 10세트]... 이런식으로 앞에 1, 2, 3이 바뀌게 출력하려고 했습니다.
+
+        //db로부터 값을 받을 부분은 {총횟수}(각 운동의 1세트당 반복횟수)가 되겠습니다.
     }
 }
 
@@ -235,4 +244,10 @@ function achieve(exercise){
     }
     console.log("sum=" + result)
     
+}
+
+/*다이어트 모달의 경우 */
+var category = "";
+if(category === "diet"){
+    modalF.classList.remove("hidden");
 }
