@@ -3,6 +3,11 @@ const recordCheck = document.getElementById('recordCheck');
 const userInfo = document.getElementById('userInfo');
 const title = document.getElementById('title');
 
+//Language Part
+const KOR = document.getElementById('KOR');
+const FRN = document.getElementById('FRN');
+const IND = document.getElementById('IND');
+
 
 
 const baseColor = "black";
@@ -32,6 +37,19 @@ function movetoMain(){
     window.location.href="main.html";
 }
 
+//language select
+function movePage_KOR(){
+    window.location.href = "todayWorkoutTest.html";
+}
+
+function movePage_FRN(){
+    window.location.href = "todayWorkoutTest_French.html";
+}
+
+function movePage_IND(){
+    window.location.href = "todayWorkoutTest_Hindi.html";
+}
+
 function init(){
     start.style.color = baseColor;
     start.addEventListener('click',movePage1);
@@ -46,6 +64,12 @@ function init(){
     recordCheck.addEventListener('click',handleClick);
 
     title.addEventListener('click', movetoMain);
+
+    //language
+    KOR.addEventListener('click',movePage_KOR);
+    FRN.addEventListener('click',movePage_FRN);
+    IND.addEventListener('click',movePage_IND);
 }
 
 init();
+

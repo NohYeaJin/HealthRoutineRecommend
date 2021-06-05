@@ -365,4 +365,4 @@ CalendarPicker.prototype.onValueChange = function (callback) {
     this.callback = callback;
 }
 
-//document.querySelectorAll('time')[10].classList.add('selected-normal');
+//document.querySelectorAll('time')[10].classList.add('selected--normal');

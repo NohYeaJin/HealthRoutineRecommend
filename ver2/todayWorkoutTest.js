@@ -76,7 +76,7 @@ const overlayF = modalF.querySelector(".mdF_overlay");
 const closeButtonF = document.getElementById("closeBtnF");
 
 function openModal1(){
-    if(btn1click == 1){
+    if(btn1click == 2){
         modalF.classList.remove("hidden");
     }
     else{
@@ -89,7 +89,7 @@ function openModal1(){
 }
 
 function openModal2(){
-    if(btn2click == 1){
+    if(btn2click == 2){
         modalF.classList.remove("hidden");
     }
     else{
@@ -102,7 +102,7 @@ function openModal2(){
 }
 
 function openModal3(){
-    if(btn3click == 1){
+    if(btn3click == 2){
         modalF.classList.remove("hidden");
     }
     else{

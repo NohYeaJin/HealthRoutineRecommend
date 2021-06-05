@@ -31,7 +31,8 @@
 
 #btnArea{
     text-align: center;
-    margin-top: 60px;
+    position: fixed;
+    top: 40%; left: 36%;
 }
 #btn1, #btn2, #btn3{
     width: 400px;
